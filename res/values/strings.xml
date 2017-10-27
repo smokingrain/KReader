@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">K锅读书</string>
+    <string name="mybookshelf">我的书架</string>
+    <string name="readdone">已读最新章节</string>
+    <string name="bookfinished">已完本</string>
+
+</resources>
