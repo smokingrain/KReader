@@ -1,6 +1,8 @@
 package com.xk.reader.adapters;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.xk.kreader.R;
@@ -76,6 +78,24 @@ public class BookShelftAdapter extends BaseAdapter{
 
 	public void setData(List<BookListViewTag> data) {
 		this.data = data;
+	}
+	
+	public void reset(List<BookListViewTag> data) {
+		if(null != data) {
+			this.data.clear();
+			this.data.addAll(data);
+			Collections.sort(this.data, new Comparator<BookListViewTag>() {
+
+				@Override
+				public int compare(BookListViewTag lhs, BookListViewTag rhs) {
+					return lhs.getTop().compareTo(rhs.getTop());
+				}
+				
+			});
+			notifyDataSetChanged();
+		}
+		
+		
 	}
 
 }

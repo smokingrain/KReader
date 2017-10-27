@@ -50,13 +50,18 @@ public class BookListViewTag {
 	 */
 	private String simple;
 	
+	/**
+	 * 1，置顶，0，不置顶
+	 */
+	private Integer top = 0;
+	
 	
 	public BookListViewTag() {
 	}
 
 	public BookListViewTag(Bitmap cover, String bookId, String bookName, String bookAuthor,
 			Integer currentChapter, Integer status,
-			Integer updateChapter, String simple) {
+			Integer updateChapter, String simple, Integer top) {
 		this.bookCover = cover;
 		this.bookId = bookId;
 		this.bookName = bookName;
@@ -65,6 +70,7 @@ public class BookListViewTag {
 		this.status = status;
 		this.updateChapter = updateChapter;
 		this.simple = simple;
+		this.top = top;
 	}
 
 	public String getBookId() {
@@ -129,6 +135,14 @@ public class BookListViewTag {
 
 	public void setBookCover(Bitmap bookCover) {
 		this.bookCover = bookCover;
+	}
+
+	public Integer getTop() {
+		return top;
+	}
+
+	public void setTop(Integer top) {
+		this.top = top;
 	}
 	
 	
