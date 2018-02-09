@@ -114,7 +114,7 @@ public class PageFactory {
                 bookId, chaptersList);
     }
 
-    public PageFactory(Context context, int width, int height, int fontSize, String bookId,
+    private PageFactory(Context context, int width, int height, int fontSize, String bookId,
                        List<BookMixAToc.mixToc.Chapters> chaptersList) {
         mContext = context;
         mWidth = width;

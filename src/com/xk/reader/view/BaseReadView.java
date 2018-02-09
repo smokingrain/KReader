@@ -22,6 +22,7 @@ import android.graphics.PointF;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Scroller;
+import android.widget.Toast;
 
 import com.xk.reader.bean.BookMixAToc;
 import com.xk.reader.manager.SettingManager;
@@ -60,6 +61,7 @@ public abstract class BaseReadView extends View {
         super(context);
         this.listener = listener;
         this.bookId = bookId;
+        
 
         mScreenWidth = ScreenUtils.getScreenWidth();
         mScreenHeight = ScreenUtils.getScreenHeight();
@@ -68,9 +70,8 @@ public abstract class BaseReadView extends View {
         mNextPageBitmap = Bitmap.createBitmap(mScreenWidth, mScreenHeight, Bitmap.Config.ARGB_8888);
         mCurrentPageCanvas = new Canvas(mCurPageBitmap);
         mNextPageCanvas = new Canvas(mNextPageBitmap);
-
+        
         mScroller = new Scroller(getContext());
-
 
         pagefactory = new PageFactory(getContext(), bookId, chaptersList);
         pagefactory.setOnReadStateChangeListener(listener);

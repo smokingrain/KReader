@@ -61,10 +61,10 @@ public class BookShelftAdapter extends BaseAdapter{
 		if(tag.getCurrentChapter() < tag.getUpdateChapter()) {
 			readPos.setText((tag.getUpdateChapter() - tag.getCurrentChapter()) + "章未读");
 		}else {
-			readPos.setText(R.string.readdone);
+			readPos.setText(R.string.read_done);
 		}
 		if(tag.getStatus() == 1) {
-			update.setText(R.string.bookfinished);
+			update.setText(R.string.book_finished);
 		}else {
 			update.setText("连载至:" + tag.getSimple());
 		}

@@ -12,7 +12,7 @@
     
     <RadioButton 
 	style="@style/main_footbar_radio_center"
-	 android:text="@string/mybookshelf"
+	 android:text="@string/my_book_shelf"
 	android:textSize="20sp"/>
        
        

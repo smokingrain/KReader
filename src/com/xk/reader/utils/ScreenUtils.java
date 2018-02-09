@@ -75,7 +75,13 @@ public class ScreenUtils {
      * @return
      */
     public static int getScreenHeight() {
-        return AppUtils.getAppContext().getResources().getDisplayMetrics().heightPixels;
+    	 int statusBarHeight = 0;
+         int resourceId = AppUtils.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
+         if (resourceId > 0) {  
+             //根据资源ID获取响应的尺寸值  
+             statusBarHeight = AppUtils.getAppContext().getResources().getDimensionPixelSize(resourceId);  
+         } 
+        return AppUtils.getAppContext().getResources().getDisplayMetrics().heightPixels - statusBarHeight;
     }
 
     /**

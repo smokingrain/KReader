@@ -42,9 +42,9 @@ public class HTTPUtil {
 	
 	
 	public static HTTPUtil getInstance(String name){
-		HTTPUtil instance=ReaderApplication.maps.get(name);
-		if(null==instance){
-			instance=new HTTPUtil(name);
+		HTTPUtil instance = ReaderApplication.maps.get(name);
+		if(null == instance){
+			instance = new HTTPUtil(name);
 			ReaderApplication.maps.put(name, instance);
 		}
 		Log.i("httpclient", instance.hashCode() + "");
@@ -90,16 +90,16 @@ public class HTTPUtil {
 	}
 	
 	public String getHtml(String url){
-		StringBuffer result=new StringBuffer();
+		StringBuffer result = new StringBuffer();
 		try {
 			HttpGet httppost = new HttpGet(url);  
 			httppost.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36");
 			HttpResponse response = httpClient.execute(httppost);  
-			if(302==response.getStatusLine().getStatusCode()){
-				Header[] headers=response.getHeaders("Location");
-				if(null!=headers&&headers.length>0){
-					Header header=headers[0];
-					String redirect=header.getValue();
+			if(302 == response.getStatusLine().getStatusCode()){
+				Header[] headers = response.getHeaders("Location");
+				if(null != headers&&headers.length>0){
+					Header header = headers[0];
+					String redirect = header.getValue();
 					HttpPost httppost1 = new HttpPost(redirect);  
 					HttpResponse response1=httpClient.execute(httppost1);  
 					HttpEntity entity = response1.getEntity();  
@@ -111,7 +111,7 @@ public class HTTPUtil {
 		            }  
 				}
 				return null;
-			}else if(200==response.getStatusLine().getStatusCode()){
+			}else if(200 == response.getStatusLine().getStatusCode()){
 				HttpEntity entity = response.getEntity();  
 				InputStream instream=entity.getContent();
 				BufferedReader br = new BufferedReader(new InputStreamReader(instream,"UTF-8"));  
@@ -133,11 +133,11 @@ public class HTTPUtil {
 		httppost.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36");
 		try {
 			HttpResponse response = httpClient.execute(httppost);  
-			if(302==response.getStatusLine().getStatusCode()){
-				Header[] headers=response.getHeaders("Location");
-				if(null!=headers&&headers.length>0){
-					Header header=headers[0];
-					String redirect=header.getValue();
+			if(302 == response.getStatusLine().getStatusCode()){
+				Header[] headers = response.getHeaders("Location");
+				if(null != headers&&headers.length>0){
+					Header header = headers[0];
+					String redirect = header.getValue();
 					return getInput(redirect);
 				}
 			}else{
@@ -214,9 +214,9 @@ public class HTTPUtil {
 	
 	public String readJsonfromURL2(String url,Map<String,String> params) throws ClientProtocolException, IOException{
 		List<NameValuePair> formparams = new ArrayList<NameValuePair>();
-		if(null!=params){
-			Set<String> keys=params.keySet();
-			for(String key:keys){
+		if(null != params){
+			Set<String> keys = params.keySet();
+			for(String key : keys){
 				formparams.add(new BasicNameValuePair(key, params.get(key)));
 			}
 		}
@@ -246,9 +246,9 @@ public class HTTPUtil {
 	
 	public String readJsonfromURL3(String url,Map<String,String> params) throws ClientProtocolException, IOException{
 		List<NameValuePair> formparams = new ArrayList<NameValuePair>();
-		if(null!=params){
-			Set<String> keys=params.keySet();
-			for(String key:keys){
+		if(null != params){
+			Set<String> keys = params.keySet();
+			for(String key : keys){
 				formparams.add(new BasicNameValuePair(key, params.get(key)));
 			}
 		}
@@ -324,7 +324,7 @@ public class HTTPUtil {
 	}
 	
 	public static void main(String[]args){
-		HTTPUtil l=HTTPUtil.getInstance("");
+		HTTPUtil l = HTTPUtil.getInstance("");
 		String url="http://mobilecdn.kugou.com/new/app/i/krc.php?keyword=%E5%BC%A0%E9%9D%93%E9%A2%96%E3%80%81%E7%8E%8B%E9%93%AE%E4%BA%AE%20-%20%E5%8F%AA%E6%98%AF%E6%B2%A1%E6%9C%89%E5%A6%82%E6%9E%9C&timelength=295000&type=1&cmd=200&hash=6253cbe1069ac2378c0028e93a1afe3f";
 		File file=new File("e:/download/只是没有如果.krc");
 		try {

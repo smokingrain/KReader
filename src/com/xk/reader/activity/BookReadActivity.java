@@ -19,7 +19,7 @@ public class BookReadActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		BookMixAToc.mixToc.Chapters chapters = new BookMixAToc.mixToc.Chapters();
-		chapters.currency = 0;
+		chapters.currency = 1;
 		chapters.id = "0000000";
 		chapters.isVip = false;
 		chapters.link = "www.baidu.com";
@@ -61,7 +61,7 @@ public class BookReadActivity extends Activity {
 		};
 		pageWidget = new PageWidget(this, "0000000", chaptersList, listener);
 		setContentView(pageWidget);
-		pageWidget.init(ThemeManager.NORMAL);
+		pageWidget.init(ThemeManager.LEATHER);
 //		pageWidget.jumpToChapter(0);
 	}
 
